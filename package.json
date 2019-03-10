@@ -1,0 +1,19 @@
+{
+  "name": "newblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-layout": "^0.1.0",
+    "hbs": "^4.0.3",
+    "mongoose": "^5.4.16",
+    "socket.io": "^2.2.0",
+    "validator": "^10.11.0"
+  }
+}
