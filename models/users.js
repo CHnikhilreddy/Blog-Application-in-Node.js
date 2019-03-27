@@ -31,7 +31,9 @@ var User = mongoose.model('User', {
   name: {
     type: String,
     require: true,
-    minlength:1
+    minlength:1,
+    unique: true,
+    trim: true,
   },
   
 });

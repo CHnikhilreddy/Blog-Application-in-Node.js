@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
     "express-layout": "^0.1.0",
+    "express-session": "^1.15.6",
     "hbs": "^4.0.3",
     "mongoose": "^5.4.16",
     "socket.io": "^2.2.0",

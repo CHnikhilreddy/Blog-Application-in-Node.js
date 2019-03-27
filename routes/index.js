@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-var {question} = require("../models/questions.js");
+
 
 router.get('/',(req,res) => res.render('welcome'));
-router.get('/addquestion',(req,res) => res.render('Addquestion'));
 
-router.post('/addquestion',(req,res) => {
-	  const { Addquestion } = req.body;
-	  var Question = new question({
-	  	question : Addquestion
-	  });
-	  Question.save().then((doc)=>{
-	    console.log('quastion saved')
-        },(e)=>{
-        	console.log('Unable to save question');
-        });
-	res.render('Addquestion')
-})
+//login page
+router.get('/login',(req,res) => res.render('login'));
+
+//register
+router.get('/register',(req,res) => res.render('signup'));
+router.get('/blog',(req,res) => res.render('blog'));
+
+
+router.get('/users/AddBlogPost',(req,res) => {
+	console.log("hello")
+	res.render('user/AddPost.hbs')
+});
+
 module.exports = router;

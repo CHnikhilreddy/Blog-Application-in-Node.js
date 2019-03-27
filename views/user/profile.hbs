@@ -1,9 +1,27 @@
-<div class="jumbotron">
-  <h1 class="display-3">Nikhil Reddy</h1>
-  <p class="lead">user info</p>
-  <hr class="my-4">
-  <p>something</p>
-  <div class="container">
-    <p>no of aneswrs</p>
-  </div>
-</div>
+
+<html>
+	<head>
+	{{> header}}
+		<link
+        rel="stylesheet"
+        href="https://bootswatch.com/4/journal/bootstrap.min.css"
+        />
+		<style>
+			.profile_photo_img{
+				margin-left: 35%;
+			}
+		</style>
+	</head>
+	<body>
+	{{> nav}}
+		<div class="jumbotron">
+			<img class="profile_photo_img" src="https://www.google.co.in/search?q=profile+picture&rlz=1C1GIGM_enIN799IN799&tbm=isch&source=iu&ictx=1&fir=ZbfgeaptF8Y5ZM%253A%252Cq-HjbKiBE4XyiM%252C_&vet=1&usg=AI4_-kQDgMwxlAMExJ4JEeJmUQDYRjnudg&sa=X&ved=2ahUKEwiPzayGtJ3hAhWBLo8KHUGVBBQQ9QEwAXoECAcQBg#imgdii=L_EqguE5TKip4M:&imgrc=ZbfgeaptF8Y5ZM:&vet=1" height="300" width="300">
+           <h1 class="display-3">Hello, {{usersName}}!</h1>
+           <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+           <hr class="my-4">
+           <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+           
+        </div>
+   {{> footer}}
+	</body>
+</html>

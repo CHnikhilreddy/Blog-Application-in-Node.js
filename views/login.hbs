@@ -1,3 +1,9 @@
+<html>
+<head>
+{{> header}}
+</head>
+<body>
+{{> nav}}
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
     <div class="card card-body">
@@ -26,8 +32,15 @@
         <button type="submit" class="btn btn-primary btn-block">Login</button>
       </form>
       <p class="lead mt-4">
-        No Account? <a href="/users/register">Register</a>
+        No Account? <a href="/register">Register</a>
       </p>
     </div>
   </div>
 </div>
+{{> footer}}
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost:3000');
+</script>
+</body>
+</html>
