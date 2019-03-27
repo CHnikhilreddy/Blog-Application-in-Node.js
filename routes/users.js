@@ -3,6 +3,14 @@ const router = express.Router();
 var {User} = require("../models/users.js");
 var {BlogPost} = require("../models/BlogPost.js");
 
+router.get('/login',(req,res) => res.render('login'));
+
+router.post('/logout',(req,res) => {
+	req.session = null;
+	res.render('login')
+});
+
+
 router.get('/:NameOfAccount',(req,res) => {
 	if(req.session.usersName == req.params.NameOfAccount){
 		res.render('user/profile.hbs',{
@@ -11,14 +19,28 @@ router.get('/:NameOfAccount',(req,res) => {
 	}
 });
 
+
 router.get('/:NameOfAccount/:AddBlogPost',(req,res) => {
-	if(req.session.usersName == req.params.NameOfAccount){
-		if(req.params.AddBlogPost == "AddBlogPost")
-		res.render('user/AddPost.hbs',{
-			usersName: req.session.usersName
-		});
-	}
+	
+		if(req.params.AddBlogPost == "AddBlogPost"){
+		    if(req.session.usersName == req.params.NameOfAccount){
+		       res.render('user/AddPost.hbs',{
+			   usersName: req.session.usersName
+		       });
+		     }
+		     else{
+		     	res.render("login.hbs")
+		     }
+		}
+		else if(req.params.AddBlogPost == "Blog"){
+		       res.render('bloguser.hbs',{
+               usersName: req.params.NameOfAccount
+	           });
+		}
+		
 });
+
+
 
 router.get('/AddBlogPost',(req,res) => {
 	console.log("hello")
@@ -50,6 +72,7 @@ router.post('/login',(req,res)=>{
             res.redirect(req.session.usersName)
      
 	      }
+	    else{res.redirect('login')}
         },(e)=>{
 	            res.status(400).json({message: 'A user with that email does not exist.'});
     });

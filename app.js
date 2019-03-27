@@ -22,6 +22,13 @@ io.on('connection', function(socket){
         },(e)=>{
 	            console.log('not working')
    });
+  socket.on('user',function(user){
+  	BlogPost.find({userName: user}).then((BlogPost)=>{
+	    io.emit('alluserblogposts',BlogPost);
+        },(e)=>{
+	            console.log('not working')
+    });
+  });
 });
 
 

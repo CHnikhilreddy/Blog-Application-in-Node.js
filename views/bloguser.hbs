@@ -1,0 +1,43 @@
+<html>
+<head>
+{{> header}}
+</head>
+<body>
+{{> nav}}
+<div class="container" id="root">
+  
+</div>
+{{> footer}}
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost:3000');
+
+socket.emit('user',"{{usersName}}" );
+
+ socket.on('alluserblogposts',function(some){
+	for (var i = 0; i < some.length; i++) {
+		createPost(some[i]);
+	}
+ }); 
+			
+			function createPost(obj){
+            var input = obj.BlogPost;
+            var header = obj.Header;
+            var ul = document.getElementById('root')
+	    	var aline3 = document.createElement('H4');
+	    	var aline4 = document.createElement('p');
+	    	var aline1 = document.createElement('DIV');
+	    	aline1.className = "card text-white bg-secondary mb-3";
+	    	var aline2 = document.createElement('DIV');
+	    	aline2.className = "card-body";
+	    	aline4.appendChild(document.createTextNode(input));
+	    	aline3.appendChild(document.createTextNode(header));
+	    	aline2.appendChild(aline3);
+	    	aline2.appendChild(aline4);
+	    	aline1.appendChild(aline2)
+	    	ul.appendChild(aline1)
+	    }
+		</script>
+</body>
+</html>
+

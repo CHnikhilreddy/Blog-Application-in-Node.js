@@ -7,21 +7,26 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="blog">Home </a>
+        <a class="nav-link" href="/blog">Home </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/users/{{usersName}}/AddBlogPost">New</a>
       </li>
+      {{#if usersName}}
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>  
+        <a class="nav-link" href="/users/{{usersName}}/Blog">Myposts</a>  
       </li>
+      {{/if}}
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    <form class="form-inline my-2 my-lg-0" action="/users/logout" method="POST">
+       {{#if usersName}}
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">logout</button>
+       {{else}}
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">login</button>
+      {{/if}}
     </form>
   </div>
 </nav>
